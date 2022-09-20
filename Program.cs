@@ -1,21 +1,35 @@
-﻿#region Battleship Kata
-using hw;
+﻿using hw;
 
-int[,] field = new int[10,10]
-                     {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
-                      {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
-                      {1, 0, 1, 0, 1, 1, 1, 0, 1, 0},
-                      {1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                      {0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-                      {0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
-                      {0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
-                      {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-                      {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+System.Console.WriteLine(BuildSquareKata.GenerateShape(3));
 
-var res = BattleshipField.ValidateBattlefield(field);
+#region ToSmall Kata
+// using hw;
 
-System.Console.WriteLine(res);
+// var s = ToSmallest.Smallest(285365);
+// foreach (var item in s)
+// {
+//      System.Console.WriteLine(item);
+// }
+#endregion
+
+#region Battleship Kata
+// using hw;
+
+// int[,] field = new int[10,10]
+//                      {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+//                       {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
+//                       {1, 0, 1, 0, 1, 1, 1, 0, 1, 0},
+//                       {1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+//                       {0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+//                       {0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+//                       {0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+//                       {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+//                       {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+//                       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+
+// var res = BattleshipField.ValidateBattlefield(field);
+
+// System.Console.WriteLine(res);
 #endregion
 
 #region Block sequence Kata
