@@ -1,6 +1,29 @@
-﻿using hw;
+﻿#region Snail Kata
+// using hw;
 
-System.Console.WriteLine(BuildSquareKata.GenerateShape(3));
+// int[][] array = new int [][]
+// {
+//     new []{1, 1, 1, 1, 1, 1, 1},
+//     new []{2, 2, 2, 2, 2, 2, 2},
+//     new []{3, 3, 3, 3, 3, 3, 3},
+//     new []{4, 4, 4, 4, 4, 4, 4},
+//     new []{5, 5, 5, 5, 5, 5, 5},
+//     new []{6, 6, 6, 6, 6, 6, 6},    
+//     new []{7, 7, 7, 7, 7, 7, 7}
+// };
+// var res = SnailSolution.Snail(array);
+
+// foreach (var item in res)
+// {
+//     System.Console.WriteLine(item);
+// }
+#endregion
+
+#region BuildSquare Kata
+// using hw;
+
+// System.Console.WriteLine(BuildSquareKata.GenerateShape(3));
+#endregion
 
 #region ToSmall Kata
 // using hw;
