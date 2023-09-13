@@ -103,4 +103,44 @@ using hw;
 
 //Console.WriteLine(SolutionThreeSum.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 }));
 
+//Console.WriteLine(SolutionRemoveDuplicates.RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 }));
+
+//System.Console.WriteLine(SolutionValidPalindrome.IsPalindrome("A man, a plan, a canal: Panama"));
+
+//System.Console.WriteLine(SolutionLongestCommonPrefix.LongestCommonPrefix(new string[] { "flower", "flow", "flight" }));
+
+//Console.WriteLine(SolutionRemoveElement.RemoveElement(new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2));
+
+//Console.WriteLine(SolutionCanPlaceFlowers.CanPlaceFlowers(new int[] { 1, 0, 0, 0, 1 }, 1));
+//Console.WriteLine(SolutionCanPlaceFlowers.CanPlaceFlowers(new int[] { 1, 0, 0, 0, 0, 0, 0, 0, 1 }, 3));
+
+//Console.WriteLine(SolutionRepeatedSubstringPattern.RepeatedSubstringPattern("abac"));
+//Console.WriteLine(SolutionRepeatedSubstringPattern.RepeatedSubstringPattern("abab"));
+
+//PisosComparerQ.PisosComaparing();
+
+//SolutionRotate.Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
+
+//Console.WriteLine(SolutionLongestPalindrome.LongestPalindrome("babad"));
+//Console.WriteLine(SolutionLongestPalindrome.LongestPalindrome("cbbd"));
+
+//Console.WriteLine(SolutionLongestConsecutive.LongestConsecutive(new int[] { 100, 4, 200, 1, 3, 2 }));
+
+//Console.WriteLine(SolutionCanJump.CanJump(new int[] { 2, 3, 1, 1, 4 }));
+//Console.WriteLine(SolutionCanJump.CanJump(new int[] { 3, 2, 1, 0, 4 }));
+//Console.WriteLine(SolutionCanJump.CanJump(new int[] { 3, 0, 8, 2, 0, 0, 1 }));
+
+//Console.WriteLine(SolutionMaxSubArray.MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
+
+//var res = SolutionProductExceptSelf.ProductExceptSelf(new int[] { 1, 2, 3, 4 });
+//var res = SolutionProductExceptSelf.ProductExceptSelf(new int[] { 3, 4, 5, 6, 7 });
+//foreach (var item in res)
+//{
+//    Console.WriteLine(item);
+//}
+
+Console.WriteLine(SolutionIsInterleave.IsInterleave("aa", "ab", "aaba"));
+
+Console.ReadKey();
+
 #endregion
