@@ -139,7 +139,8 @@ using hw;
 //    Console.WriteLine(item);
 //}
 
-Console.WriteLine(SolutionIsInterleave.IsInterleave("aa", "ab", "aaba"));
+//Console.WriteLine(SolutionIsInterleave.IsInterleave("aa", "ab", "aaba"));
+SolutionMoveZeroes.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
 
 Console.ReadKey();
 

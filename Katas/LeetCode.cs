@@ -596,5 +596,18 @@ namespace hw
         }
     }
 
+    public static class SolutionMoveZeroes
+    {
+        public static void MoveZeroes(int[] nums)
+        {
+            var res = nums.Where(x => x != 0).Concat(nums.Where(x => x == 0)).ToArray();
+            int i = 0;
+            foreach (var item in res)
+            {
+                nums[i] = item;
+                i++;
+            }
+        }
+    }
 }
 #endregion
