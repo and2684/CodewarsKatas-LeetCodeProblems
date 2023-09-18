@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\hw.csproj": {}
+    "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\hw.csproj": {}
   },
   "projects": {
-    "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\hw.csproj": {
+    "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\hw.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\hw.csproj",
+        "projectUniqueName": "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\hw.csproj",
         "projectName": "hw",
-        "projectPath": "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\hw.csproj",
-        "packagesPath": "C:\\Users\\and2684\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\obj\\",
+        "projectPath": "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\hw.csproj",
+        "packagesPath": "C:\\Users\\aaaa6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\and2684\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aaaa6\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

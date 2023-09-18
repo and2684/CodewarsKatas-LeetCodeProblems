@@ -27,3 +27,17 @@ C:\Users\and2684\source\repos\CodewarsKatas\obj\Debug\net6.0\refint\hw.dll
 C:\Users\and2684\source\repos\CodewarsKatas\obj\Debug\net6.0\hw.pdb
 C:\Users\and2684\source\repos\CodewarsKatas\obj\Debug\net6.0\hw.genruntimeconfig.cache
 C:\Users\and2684\source\repos\CodewarsKatas\obj\Debug\net6.0\ref\hw.dll
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\bin\Debug\net6.0\hw.exe
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\bin\Debug\net6.0\hw.deps.json
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\bin\Debug\net6.0\hw.runtimeconfig.json
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\bin\Debug\net6.0\hw.dll
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\bin\Debug\net6.0\hw.pdb
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.AssemblyInfoInputs.cache
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.AssemblyInfo.cs
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.csproj.CoreCompileInputs.cache
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.dll
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\refint\hw.dll
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.pdb
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\hw.genruntimeconfig.cache
+C:\Users\aaaa6\Source\Repos\CodewarsKatas\obj\Debug\net6.0\ref\hw.dll

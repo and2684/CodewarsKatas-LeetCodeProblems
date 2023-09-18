@@ -609,5 +609,52 @@ namespace hw
             }
         }
     }
+
+    public static class SolutionRemoveElement2
+    {
+        public static int RemoveElement2(int[] nums, int val)
+        {
+            var res = nums.Count();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == val)
+                {
+                    nums[i] = 9999;
+                    res--;
+                }
+            }
+            Array.Sort(nums);
+            return res;
+        }
+    }
+
+    public static class SolutionStrStr
+    {
+        public static int StrStr(string haystack, string needle)
+        {
+            if (haystack.Length < needle.Length) return -1;
+            for (int i = 0; i <= haystack.Length - needle.Length; i++)
+            {
+                if(haystack.Substring(i, needle.Length) == needle) return i;
+            }
+            return -1;
+        }
+    }
+
+    public static class Solution
+    {
+        public static int SearchInsert(int[] nums, int target)
+        {
+            if (target <= nums[0]) return 0;
+            if (target > nums[nums.Length - 1]) return nums.Length;
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == target) return i;
+                if (nums[i] < target && nums[i + 1] >= target) return i + 1;
+            }
+            return nums.Length;
+        }
+    }
+
 }
 #endregion
