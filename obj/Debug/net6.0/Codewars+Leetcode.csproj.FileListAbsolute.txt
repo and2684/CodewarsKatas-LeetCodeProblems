@@ -1,0 +1,14 @@
+C:\Users\aaaa6\source\repos\CodewarsKatas\bin\Debug\net6.0\Codewars+Leetcode.exe
+C:\Users\aaaa6\source\repos\CodewarsKatas\bin\Debug\net6.0\Codewars+Leetcode.deps.json
+C:\Users\aaaa6\source\repos\CodewarsKatas\bin\Debug\net6.0\Codewars+Leetcode.runtimeconfig.json
+C:\Users\aaaa6\source\repos\CodewarsKatas\bin\Debug\net6.0\Codewars+Leetcode.dll
+C:\Users\aaaa6\source\repos\CodewarsKatas\bin\Debug\net6.0\Codewars+Leetcode.pdb
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.AssemblyInfoInputs.cache
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.AssemblyInfo.cs
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.csproj.CoreCompileInputs.cache
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.dll
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\refint\Codewars+Leetcode.dll
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.pdb
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\Codewars+Leetcode.genruntimeconfig.cache
+C:\Users\aaaa6\source\repos\CodewarsKatas\obj\Debug\net6.0\ref\Codewars+Leetcode.dll

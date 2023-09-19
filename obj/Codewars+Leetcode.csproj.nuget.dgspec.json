@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\hw.csproj": {}
+    "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\hw.csproj": {
+    "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\hw.csproj",
-        "projectName": "hw",
-        "projectPath": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\hw.csproj",
+        "projectUniqueName": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
+        "projectName": "Codewars+Leetcode",
+        "projectPath": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
         "packagesPath": "C:\\Users\\aaaa6\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\obj\\",
         "projectStyle": "PackageReference",

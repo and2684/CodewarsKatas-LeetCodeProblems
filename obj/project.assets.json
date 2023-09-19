@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\hw.csproj",
-      "projectName": "hw",
-      "projectPath": "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\hw.csproj",
+      "projectUniqueName": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
+      "projectName": "Codewars+Leetcode",
+      "projectPath": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
       "packagesPath": "C:\\Users\\aaaa6\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aaaa6\\Source\\Repos\\CodewarsKatas\\obj\\",
+      "outputPath": "C:\\Users\\aaaa6\\source\\repos\\CodewarsKatas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
