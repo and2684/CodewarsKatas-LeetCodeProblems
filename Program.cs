@@ -140,8 +140,14 @@ using hw;
 //}
 
 //Console.WriteLine(SolutionIsInterleave.IsInterleave("aa", "ab", "aaba"));
-SolutionMoveZeroes.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
+//SolutionMoveZeroes.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
 
-Console.ReadKey();
+var call = Call();
+Thread.Sleep(2000);
+
+static async Task Call()
+{
+    await Task.Delay(1000);
+}
 
 #endregion
