@@ -609,5 +609,212 @@ namespace hw
             }
         }
     }
+
+    public static class SolutionRemoveElement2
+    {
+        public static int RemoveElement2(int[] nums, int val)
+        {
+            var res = nums.Count();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == val)
+                {
+                    nums[i] = 9999;
+                    res--;
+                }
+            }
+            Array.Sort(nums);
+            return res;
+        }
+    }
+
+    public static class SolutionStrStr
+    {
+        public static int StrStr(string haystack, string needle)
+        {
+            if (haystack.Length < needle.Length) return -1;
+            for (int i = 0; i <= haystack.Length - needle.Length; i++)
+            {
+                if (haystack.Substring(i, needle.Length) == needle) return i;
+            }
+            return -1;
+        }
+    }
+
+    public static class Solution
+    {
+        public static int SearchInsert(int[] nums, int target)
+        {
+            if (target <= nums[0]) return 0;
+            if (target > nums[nums.Length - 1]) return nums.Length;
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                if (nums[i] == target) return i;
+                if (nums[i] < target && nums[i + 1] >= target) return i + 1;
+            }
+            return nums.Length;
+        }
+    }
+
+    public static class SolutionFindMedianSortedArrays
+    {
+        public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            var merged = nums1.Concat(nums2).ToArray();
+            Array.Sort(merged);
+
+            int length = merged.Length;
+            int middleIndex = length / 2;
+
+            if (length % 2 == 0) // Если число элементов четное
+            {
+                int middleIndex1 = middleIndex - 1;
+                int middleIndex2 = middleIndex;
+                double median = (merged[middleIndex1] + merged[middleIndex2]) / 2.0;
+                return median;
+            }
+            else // Если число элементов нечетное
+            {
+                double median = merged[middleIndex];
+                return median;
+            }
+        }
+    }
+
+    public static class SolutionLengthOfLastWord
+    {
+        public static int LengthOfLastWord(string s)
+        {
+            return s.Trim().Reverse().TakeWhile(x => x != ' ').Count();
+        }
+    }
+
+    public static class SolutionPlusOne
+    {
+        public static int[] PlusOne(int[] digits)
+        {
+            // Не хватило размерности decimal, а жаль, решение прикольное же :)
+            //decimal res = 0;
+            //int exp = 0;
+            //foreach (var digit in digits.Reverse()) 
+            //{
+            //    res = res + (decimal)(digit * Math.Pow(10, exp));
+            //    exp++;
+            //}
+            //res++;
+            //return res.ToString().ToCharArray().Select(x => int.Parse(x.ToString())).ToArray();
+
+            var list = new List<int>(digits.Length + 1);
+            var NeedAddition = true;
+            foreach (int i in digits.Reverse())
+            {
+                if (i == 9 && NeedAddition)
+                {
+                    list.Add(0);
+                    continue;
+                }
+                if (NeedAddition)
+                {
+                    list.Add(i + 1);
+                    NeedAddition = false;
+                }
+                else
+                {
+                    list.Add(i);
+                }
+            }
+            if (NeedAddition) list.Add(1);
+            list.Reverse();
+            return list.ToArray();
+        }
+    }
+
+    public static class SolutionConvertToTitle
+    {
+        public static string ConvertToTitle(int columnNumber)
+        {
+            Dictionary<int, char> dictionary = new Dictionary<int, char>(26);
+            var i = 0;
+            for (char c = 'A'; c <= 'Z'; c++)
+            {
+                dictionary.Add(++i, c);
+            }
+
+            var suffix = string.Empty;
+            i = columnNumber % 26;
+            if (i > 0)
+            {
+                suffix = dictionary[i].ToString();
+                columnNumber = columnNumber - i;
+            }
+
+            var z = false;
+            while (columnNumber >= 26)
+            {
+                columnNumber = columnNumber / 26;
+                if (columnNumber >= 26)
+                {
+                    suffix = 'Z' + suffix;
+                    z = true;
+                }
+
+                if (!z)
+                {
+                    suffix = dictionary[columnNumber].ToString() + suffix;
+                }
+            }
+
+            return suffix;
+        }
+    }
+
+    public static class SolutionSingleNumber
+    {
+        public static int SingleNumber(int[] nums)
+        {
+            var hs = new HashSet<int>(nums.Length);
+            foreach (var i in nums)
+            {
+                if(hs.Contains(i))
+                {
+                    hs.Remove(i);
+                }
+                else
+                {
+                    hs.Add(i);
+                }
+            }
+            return hs.FirstOrDefault();
+        }
+    }
+
+    public static class SolutionLetterCombinations
+    {
+        public static IList<string> LetterCombinations(string digits)
+        {
+            var res = new List<string>();
+
+            int[] keys = { 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9 };
+            char[] values = new char[26];
+            for (int i = 0; i < 26; i++)
+            {
+                values[i] = Convert.ToChar('a' + i);
+            }
+
+            var map = keys.Zip(values, (k, v) => new { Key = k, Value = v }).ToLookup(x => x.Key, x => x.Value);
+
+            foreach (var digit in digits)
+            {
+                IGrouping<int, char> i = map.Where(x => x.Key == int.Parse(digit.ToString())).First();
+                foreach (var item in i)
+                {
+                    res.Add(item.ToString());
+                }
+                res.Add(new string('-', 50));
+            }
+
+            return res;
+        }
+    }
 }
 #endregion

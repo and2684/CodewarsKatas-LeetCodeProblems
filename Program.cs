@@ -141,13 +141,19 @@ using hw;
 
 //Console.WriteLine(SolutionIsInterleave.IsInterleave("aa", "ab", "aaba"));
 //SolutionMoveZeroes.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
+//Console.WriteLine(SolutionStrStr.StrStr("a", "a"));
 
-var call = Call();
-Thread.Sleep(2000);
+//Console.WriteLine(SolutionPlusOne.PlusOne(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }));
 
-static async Task Call()
+//Console.WriteLine(SolutionConvertToTitle.ConvertToTitle(701));
+//Console.WriteLine(SolutionConvertToTitle.ConvertToTitle(28));
+//Console.WriteLine(SolutionConvertToTitle.ConvertToTitle(2147483647));
+
+var list = SolutionLetterCombinations.LetterCombinations("23");
+foreach (var item in list)
 {
-    await Task.Delay(1000);
+    Console.WriteLine(item);
 }
+Console.ReadKey();
 
 #endregion
