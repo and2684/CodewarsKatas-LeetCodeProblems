@@ -1,3 +1,4 @@
+global using hw;
 using System.Collections;
 using System.Collections.Immutable;
 using System.ComponentModel;
@@ -884,6 +885,37 @@ namespace hw
             if (root == null) return 0;
             max = Math.Max(MaxDepth(root.left), MaxDepth(root.right)) + 1;
             return max;
+        }
+    }
+
+    public static class SolutionNextPermutation
+    {
+        public static void NextPermutation(int[] nums)
+        {
+            var res = new List<int>();
+            Permute(nums, 0, nums.Length - 1, res);
+        }
+
+        static void Permute(int[] nums, int l, int r, List<int> res)
+        {
+            if (l == r)
+            {
+                var s = new StringBuilder(nums.Length);
+                foreach (var item in nums)
+                {
+                    s.Append(item.ToString());
+                }
+                res.Add(int.Parse(s.ToString()));
+            }
+            else
+            {
+                for (int i = l; i <= r; i++)
+                {
+                    (nums[l], nums[i]) = (nums[i], nums[l]); // меняем местами
+                    Permute(nums, l + 1, r, res);
+                    (nums[l], nums[i]) = (nums[i], nums[l]); // восстанавливаем исходное состояние
+                }
+            }
         }
     }
 }
