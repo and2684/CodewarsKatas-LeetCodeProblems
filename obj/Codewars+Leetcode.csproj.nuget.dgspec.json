@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\and2684\\Source\\Repos\\CodewarsKatas\\Codewars+Leetcode.csproj": {}
+    "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj": {}
   },
   "projects": {
-    "C:\\Users\\and2684\\Source\\Repos\\CodewarsKatas\\Codewars+Leetcode.csproj": {
+    "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\and2684\\Source\\Repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
+        "projectUniqueName": "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
         "projectName": "Codewars+Leetcode",
-        "projectPath": "C:\\Users\\and2684\\Source\\Repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
+        "projectPath": "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\Codewars+Leetcode.csproj",
         "packagesPath": "C:\\Users\\and2684\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\and2684\\Source\\Repos\\CodewarsKatas\\obj\\",
+        "outputPath": "C:\\Users\\and2684\\source\\repos\\CodewarsKatas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

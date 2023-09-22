@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Immutable;
+using System.ComponentModel;
 using System.Text;
 
 namespace hw
@@ -775,7 +776,7 @@ namespace hw
             var hs = new HashSet<int>(nums.Length);
             foreach (var i in nums)
             {
-                if(hs.Contains(i))
+                if (hs.Contains(i))
                 {
                     hs.Remove(i);
                 }
@@ -810,10 +811,79 @@ namespace hw
                 {
                     res.Add(item.ToString());
                 }
-                res.Add(new string('-', 50));
+                res.Add(new string('-', 50)); // a
             }
 
             return res;
+        }
+    }
+
+    public class TreeNode
+    {
+        public int val;
+        public TreeNode? left;
+        public TreeNode? right;
+        public TreeNode(int val = 0, TreeNode? left = null, TreeNode? right = null)
+        {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    public static class SolutionInorderTraversal
+    {
+        public static List<int> res = new List<int>();
+        public static IList<int> InorderTraversal(TreeNode root)
+        {
+            if (root is null) return res;
+            if (root.left is not null) InorderTraversal(root.left);
+            res.Add(root.val);
+            if (root.right is not null) InorderTraversal(root.right);
+            return res;
+        }
+    }
+
+    public class SolutionIsSameTree
+    {
+        bool res = true;
+        public bool IsSameTree(TreeNode? p, TreeNode? q)
+        {
+            if (!res) return false;
+            res = (p?.val == q?.val) && IsSameTree(p?.left, q?.left) && IsSameTree(p?.right, q?.right);
+            return res;
+        }
+    }
+
+    public class SolutionIsSymmetric
+    {
+        bool res = true;
+        public bool IsSymmetric(TreeNode root)
+        {
+            if (!res) return false;
+            res = IsLeftRightSymmetric(root, root);
+            return res;
+        }
+        public bool IsLeftRightSymmetric(TreeNode? p, TreeNode? q)
+        {
+            if (p is null && q is null) return true;
+            if (q is null && p is not null) return false;
+            if (p is null && q is not null) return false;
+            res = (p?.left?.val == q?.right?.val)
+                   && IsLeftRightSymmetric(p?.left, q?.right)
+                   && IsLeftRightSymmetric(p?.right, q?.left);
+            return res;
+        }
+    }
+
+    public class SolutionMaxDepth
+    {
+        int max = 1;
+        public int MaxDepth(TreeNode? root)
+        {
+            if (root == null) return 0;
+            max = Math.Max(MaxDepth(root.left), MaxDepth(root.right)) + 1;
+            return max;
         }
     }
 }
