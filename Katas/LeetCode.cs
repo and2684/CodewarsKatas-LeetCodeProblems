@@ -1,7 +1,6 @@
 global using hw;
 using System.Collections;
 using System.Collections.Immutable;
-using System.ComponentModel;
 using System.Text;
 
 namespace hw
@@ -890,33 +889,88 @@ namespace hw
 
     public static class SolutionNextPermutation
     {
+        // Не прошло по времени
+        //public static void NextPermutation(int[] nums)
+        //{
+        //    var res = new HashSet<string>();
+        //    var numsInt = long.Parse(string.Join("", nums));
+        //    Permute(nums, 0, nums.Length - 1, res);
+
+        //    var numsRes = res.OrderBy(x => x).Where(x => long.Parse(x) > numsInt).FirstOrDefault();
+        //    if (numsRes is null)
+        //        numsRes = res.OrderBy(x => x).First();
+
+        //    var numsResArr = numsRes.Select(c => int.Parse(c.ToString())).ToArray();           
+        //    numsResArr.CopyTo(nums, nums.Length - numsRes.Length);
+        //}
+
+        //static void Permute(int[] nums, int l, int r, HashSet<string> res)
+        //{
+        //    if (l == r)
+        //    {
+        //        var s = new StringBuilder(nums.Length);
+        //        foreach (var item in nums)
+        //        {
+        //            s.Append(item.ToString());
+        //        }
+        //        res.Add(s.ToString());
+        //    }
+        //    else
+        //    {
+        //        for (int i = l; i <= r; i++)
+        //        {
+        //            (nums[l], nums[i]) = (nums[i], nums[l]); // меняем местами
+        //            Permute(nums, l + 1, r, res);
+        //            (nums[l], nums[i]) = (nums[i], nums[l]); // восстанавливаем исходное состояние
+        //        }
+        //    }
+        //}
+
         public static void NextPermutation(int[] nums)
         {
-            var res = new List<int>();
-            Permute(nums, 0, nums.Length - 1, res);
+            int i = nums.Length - 2;
+
+            // Найдем первую пару соседних элементов, где левый элемент меньше правого элемента
+            while (i >= 0 && nums[i] >= nums[i + 1])
+            {
+                i--;
+            }
+
+            if (i >= 0)
+            {
+                int j = nums.Length - 1;
+
+                // Найдем наименьший элемент в подмассиве справа от индекса i, который больше числа nums[i]
+                while (j >= 0 && nums[j] <= nums[i])
+                {
+                    j--;
+                }
+
+                // Поменяем местами элементы с индексами i и j
+                Swap(nums, i, j);
+            }
+
+            // Перевернем подмассив справа от индекса i
+            Reverse(nums, i + 1, nums.Length - 1);
         }
 
-        static void Permute(int[] nums, int l, int r, List<int> res)
+        private static void Swap(int[] nums, int i, int j)
         {
-            if (l == r)
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
+        private static void Reverse(int[] nums, int start, int end)
+        {
+            while (start < end)
             {
-                var s = new StringBuilder(nums.Length);
-                foreach (var item in nums)
-                {
-                    s.Append(item.ToString());
-                }
-                res.Add(int.Parse(s.ToString()));
-            }
-            else
-            {
-                for (int i = l; i <= r; i++)
-                {
-                    (nums[l], nums[i]) = (nums[i], nums[l]); // меняем местами
-                    Permute(nums, l + 1, r, res);
-                    (nums[l], nums[i]) = (nums[i], nums[l]); // восстанавливаем исходное состояние
-                }
+                Swap(nums, start, end);
+                start++;
+                end--;
             }
         }
     }
 }
+
 #endregion

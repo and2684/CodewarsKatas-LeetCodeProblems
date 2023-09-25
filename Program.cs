@@ -156,11 +156,7 @@
 //}
 //Console.ReadKey();
 
-var arr = new int[] { 1, 2, 3 };
+var arr = new int[] { 6, 7, 5, 3, 5, 6, 2, 9, 1, 2, 7, 0, 9 };
 SolutionNextPermutation.NextPermutation(arr);
-foreach (var item in arr)
-{
-    Console.WriteLine(item);
-}
 
 #endregion
