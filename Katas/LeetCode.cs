@@ -1,6 +1,7 @@
 global using hw;
 using System.Collections;
 using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace hw
@@ -887,6 +888,7 @@ namespace hw
         }
     }
 
+    [SuppressMessage("ReSharper", "SuggestBaseTypeForParameter")]
     public static class SolutionNextPermutation
     {
         // Не прошло по времени
@@ -956,9 +958,7 @@ namespace hw
 
         private static void Swap(int[] nums, int i, int j)
         {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
+            (nums[i], nums[j]) = (nums[j], nums[i]);
         }
 
         private static void Reverse(int[] nums, int start, int end)
