@@ -1,4 +1,5 @@
-﻿#region Snail Kata
+﻿using hw;
+#region Snail Kata
 // using hw;
 
 // int[][] array = new int [][]
@@ -88,7 +89,6 @@
 #endregion
 
 #region LeetCode
-using hw;
 
 //var b = SolutionValidParentheses.IsValid("()[]{}");
 //System.Console.WriteLine(b);
@@ -141,11 +141,22 @@ using hw;
 
 //Console.WriteLine(SolutionIsInterleave.IsInterleave("aa", "ab", "aaba"));
 //SolutionMoveZeroes.MoveZeroes(new int[] { 0, 1, 0, 3, 12 });
-
 //Console.WriteLine(SolutionStrStr.StrStr("a", "a"));
 
-Console.WriteLine(SolutionPlusOne.PlusOne(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }));
+//Console.WriteLine(SolutionPlusOne.PlusOne(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }));
 
-Console.ReadKey();
+//Console.WriteLine(SolutionConvertToTitle.ConvertToTitle(701));
+//Console.WriteLine(SolutionConvertToTitle.ConvertToTitle(28));
+//Console.WriteLine(SolutionConvertToTitle.ConvertToTitle(2147483647));
+
+//var list = SolutionLetterCombinations.LetterCombinations("23");
+//foreach (var item in list)
+//{
+//    Console.WriteLine(item);
+//}
+//Console.ReadKey();
+
+var arr = new int[] { 6, 7, 5, 3, 5, 6, 2, 9, 1, 2, 7, 0, 9 };
+SolutionNextPermutation.NextPermutation(arr);
 
 #endregion

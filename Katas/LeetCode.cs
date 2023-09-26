@@ -1,3 +1,4 @@
+global using hw;
 using System.Collections;
 using System.Collections.Immutable;
 using System.Text;
@@ -635,7 +636,7 @@ namespace hw
             if (haystack.Length < needle.Length) return -1;
             for (int i = 0; i <= haystack.Length - needle.Length; i++)
             {
-                if(haystack.Substring(i, needle.Length) == needle) return i;
+                if (haystack.Substring(i, needle.Length) == needle) return i;
             }
             return -1;
         }
@@ -715,8 +716,8 @@ namespace hw
                 }
                 if (NeedAddition)
                 {
-                     list.Add(i + 1);
-                     NeedAddition = false;
+                    list.Add(i + 1);
+                    NeedAddition = false;
                 }
                 else
                 {
@@ -729,5 +730,247 @@ namespace hw
         }
     }
 
+    public static class SolutionConvertToTitle
+    {
+        public static string ConvertToTitle(int columnNumber)
+        {
+            Dictionary<int, char> dictionary = new Dictionary<int, char>(26);
+            var i = 0;
+            for (char c = 'A'; c <= 'Z'; c++)
+            {
+                dictionary.Add(++i, c);
+            }
+
+            var suffix = string.Empty;
+            i = columnNumber % 26;
+            if (i > 0)
+            {
+                suffix = dictionary[i].ToString();
+                columnNumber = columnNumber - i;
+            }
+
+            var z = false;
+            while (columnNumber >= 26)
+            {
+                columnNumber = columnNumber / 26;
+                if (columnNumber >= 26)
+                {
+                    suffix = 'Z' + suffix;
+                    z = true;
+                }
+
+                if (!z)
+                {
+                    suffix = dictionary[columnNumber].ToString() + suffix;
+                }
+            }
+
+            return suffix;
+        }
+    }
+
+    public static class SolutionSingleNumber
+    {
+        public static int SingleNumber(int[] nums)
+        {
+            var hs = new HashSet<int>(nums.Length);
+            foreach (var i in nums)
+            {
+                if (hs.Contains(i))
+                {
+                    hs.Remove(i);
+                }
+                else
+                {
+                    hs.Add(i);
+                }
+            }
+            return hs.FirstOrDefault();
+        }
+    }
+
+    public static class SolutionLetterCombinations
+    {
+        public static IList<string> LetterCombinations(string digits)
+        {
+            var res = new List<string>();
+
+            int[] keys = { 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 9, 9 };
+            char[] values = new char[26];
+            for (int i = 0; i < 26; i++)
+            {
+                values[i] = Convert.ToChar('a' + i);
+            }
+
+            var map = keys.Zip(values, (k, v) => new { Key = k, Value = v }).ToLookup(x => x.Key, x => x.Value);
+
+            foreach (var digit in digits)
+            {
+                IGrouping<int, char> i = map.Where(x => x.Key == int.Parse(digit.ToString())).First();
+                foreach (var item in i)
+                {
+                    res.Add(item.ToString());
+                }
+                res.Add(new string('-', 50)); // a
+            }
+
+            return res;
+        }
+    }
+
+    public class TreeNode
+    {
+        public int val;
+        public TreeNode? left;
+        public TreeNode? right;
+        public TreeNode(int val = 0, TreeNode? left = null, TreeNode? right = null)
+        {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    public static class SolutionInorderTraversal
+    {
+        public static List<int> res = new List<int>();
+        public static IList<int> InorderTraversal(TreeNode root)
+        {
+            if (root is null) return res;
+            if (root.left is not null) InorderTraversal(root.left);
+            res.Add(root.val);
+            if (root.right is not null) InorderTraversal(root.right);
+            return res;
+        }
+    }
+
+    public class SolutionIsSameTree
+    {
+        bool res = true;
+        public bool IsSameTree(TreeNode? p, TreeNode? q)
+        {
+            if (!res) return false;
+            res = (p?.val == q?.val) && IsSameTree(p?.left, q?.left) && IsSameTree(p?.right, q?.right);
+            return res;
+        }
+    }
+
+    public class SolutionIsSymmetric
+    {
+        bool res = true;
+        public bool IsSymmetric(TreeNode root)
+        {
+            if (!res) return false;
+            res = IsLeftRightSymmetric(root, root);
+            return res;
+        }
+        public bool IsLeftRightSymmetric(TreeNode? p, TreeNode? q)
+        {
+            if (p is null && q is null) return true;
+            if (q is null && p is not null) return false;
+            if (p is null && q is not null) return false;
+            res = (p?.left?.val == q?.right?.val)
+                   && IsLeftRightSymmetric(p?.left, q?.right)
+                   && IsLeftRightSymmetric(p?.right, q?.left);
+            return res;
+        }
+    }
+
+    public class SolutionMaxDepth
+    {
+        int max = 1;
+        public int MaxDepth(TreeNode? root)
+        {
+            if (root == null) return 0;
+            max = Math.Max(MaxDepth(root.left), MaxDepth(root.right)) + 1;
+            return max;
+        }
+    }
+
+    public static class SolutionNextPermutation
+    {
+        // Не прошло по времени
+        //public static void NextPermutation(int[] nums)
+        //{
+        //    var res = new HashSet<string>();
+        //    var numsInt = long.Parse(string.Join("", nums));
+        //    Permute(nums, 0, nums.Length - 1, res);
+
+        //    var numsRes = res.OrderBy(x => x).Where(x => long.Parse(x) > numsInt).FirstOrDefault();
+        //    if (numsRes is null)
+        //        numsRes = res.OrderBy(x => x).First();
+
+        //    var numsResArr = numsRes.Select(c => int.Parse(c.ToString())).ToArray();           
+        //    numsResArr.CopyTo(nums, nums.Length - numsRes.Length);
+        //}
+
+        //static void Permute(int[] nums, int l, int r, HashSet<string> res)
+        //{
+        //    if (l == r)
+        //    {
+        //        var s = new StringBuilder(nums.Length);
+        //        foreach (var item in nums)
+        //        {
+        //            s.Append(item.ToString());
+        //        }
+        //        res.Add(s.ToString());
+        //    }
+        //    else
+        //    {
+        //        for (int i = l; i <= r; i++)
+        //        {
+        //            (nums[l], nums[i]) = (nums[i], nums[l]); // меняем местами
+        //            Permute(nums, l + 1, r, res);
+        //            (nums[l], nums[i]) = (nums[i], nums[l]); // восстанавливаем исходное состояние
+        //        }
+        //    }
+        //}
+
+        public static void NextPermutation(int[] nums)
+        {
+            int i = nums.Length - 2;
+
+            // Найдем первую пару соседних элементов, где левый элемент меньше правого элемента
+            while (i >= 0 && nums[i] >= nums[i + 1])
+            {
+                i--;
+            }
+
+            if (i >= 0)
+            {
+                int j = nums.Length - 1;
+
+                // Найдем наименьший элемент в подмассиве справа от индекса i, который больше числа nums[i]
+                while (j >= 0 && nums[j] <= nums[i])
+                {
+                    j--;
+                }
+
+                // Поменяем местами элементы с индексами i и j
+                Swap(nums, i, j);
+            }
+
+            // Перевернем подмассив справа от индекса i
+            Reverse(nums, i + 1, nums.Length - 1);
+        }
+
+        private static void Swap(int[] nums, int i, int j)
+        {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
+        private static void Reverse(int[] nums, int start, int end)
+        {
+            while (start < end)
+            {
+                Swap(nums, start, end);
+                start++;
+                end--;
+            }
+        }
+    }
 }
+
 #endregion
