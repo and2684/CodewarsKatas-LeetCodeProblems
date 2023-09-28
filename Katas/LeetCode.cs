@@ -1042,6 +1042,26 @@ namespace hw
         }
     }
 
+    public static class SolutionMaxArea
+    {
+        public static int MaxArea(int[] height)
+        {
+            var res = 0;
+            var i = 0;
+            var j = height.Length - 1;
+            while (i < j)
+            {
+                var vol = (j - i) * Math.Min(height[i], height[j]);
+                res = Math.Max(res, vol);
+                if (height[i] > height[j])
+                    --j;
+                else
+                    ++i;
+            }
+            return res;
+        }
+    }
+
 }
 
 #endregion
