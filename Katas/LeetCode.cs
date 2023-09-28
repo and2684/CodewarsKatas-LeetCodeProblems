@@ -1014,6 +1014,34 @@ namespace hw
         }
     }
 
+    public static class SolutionMyAtoi
+    {
+        public static int MyAtoi(string s)
+        {
+            s = s.Trim();
+            if (s.Length == 0) return 0;
+            if (s[0] == '-' || s[0] == '+' || s.Length == 0)
+                if (!char.IsDigit(s.SkipWhile(x => x == ' ').Skip(1).FirstOrDefault()))
+                    return 0;
+
+            var ss = new string(s.SkipWhile(x => x == '+').TakeWhile(x => char.IsDigit(x) || x == '-').ToArray());
+            if (ss.Contains('-'))
+            {
+                ss = ss.FirstOrDefault() == '-'
+                    ? "-" + new string(ss.Skip(1).TakeWhile(x => x != '-').ToArray())
+                    : new string(ss.TakeWhile(x => x != '-').ToArray());
+            }
+
+            if (!int.TryParse(ss, out int res))
+            {
+                if (ss.Length == 0) return 0;
+                if (ss.FirstOrDefault() == '-' && ss.Length == 1) return 0;
+                return ss.FirstOrDefault() == '-' ? Int32.MinValue : Int32.MaxValue;
+            }
+            return res;
+        }
+    }
+
 }
 
 #endregion

@@ -158,10 +158,15 @@
 //var arr = new int[] { 6, 7, 5, 3, 5, 6, 2, 9, 1, 2, 7, 0, 9 };
 //SolutionNextPermutation.NextPermutation(arr);
 
-Console.WriteLine(SolutionIntReverse.IntReverse(123));
-Console.WriteLine(SolutionIntReverse.IntReverse(-123));
-Console.WriteLine(SolutionIntReverse.IntReverse(120));
-Console.WriteLine(SolutionIntReverse.IntReverse(1534236469));
+//Console.WriteLine(SolutionIntReverse.IntReverse(123));
+//Console.WriteLine(SolutionIntReverse.IntReverse(-123));
+//Console.WriteLine(SolutionIntReverse.IntReverse(120));
+//Console.WriteLine(SolutionIntReverse.IntReverse(1534236469));
+
+//Console.WriteLine(SolutionMyAtoi.MyAtoi("42"));
+//Console.WriteLine(SolutionMyAtoi.MyAtoi("        -42"));
+//Console.WriteLine(SolutionMyAtoi.MyAtoi("4193 with words"));
+Console.WriteLine(SolutionMyAtoi.MyAtoi("00000-42a1234"));
 
 Console.ReadKey();
 
