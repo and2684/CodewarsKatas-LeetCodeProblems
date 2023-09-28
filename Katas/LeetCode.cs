@@ -1,7 +1,6 @@
 global using hw;
 using System.Collections;
 using System.Collections.Immutable;
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace hw
@@ -888,7 +887,6 @@ namespace hw
         }
     }
 
-    [SuppressMessage("ReSharper", "SuggestBaseTypeForParameter")]
     public static class SolutionNextPermutation
     {
         // Не прошло по времени
@@ -930,7 +928,7 @@ namespace hw
 
         public static void NextPermutation(int[] nums)
         {
-            int i = nums.Length - 2;
+            var i = nums.Length - 2;
 
             // Найдем первую пару соседних элементов, где левый элемент меньше правого элемента
             while (i >= 0 && nums[i] >= nums[i + 1])
@@ -940,37 +938,82 @@ namespace hw
 
             if (i >= 0)
             {
-                int j = nums.Length - 1;
+                var j = nums.Length - 1;
 
-                // Найдем наименьший элемент в подмассиве справа от индекса i, который больше числа nums[i]
+                //Найдем наименьший элемент в подмассиве справа от индекса i, который больше числа nums[i]
                 while (j >= 0 && nums[j] <= nums[i])
                 {
                     j--;
                 }
 
                 // Поменяем местами элементы с индексами i и j
-                Swap(nums, i, j);
+                (nums[i], nums[j]) = (nums[j], nums[i]);
             }
 
             // Перевернем подмассив справа от индекса i
             Reverse(nums, i + 1, nums.Length - 1);
         }
 
-        private static void Swap(int[] nums, int i, int j)
-        {
-            (nums[i], nums[j]) = (nums[j], nums[i]);
-        }
-
         private static void Reverse(int[] nums, int start, int end)
         {
             while (start < end)
             {
-                Swap(nums, start, end);
+                (nums[start], nums[end]) = (nums[end], nums[start]);
                 start++;
                 end--;
             }
         }
+        public static bool IsCorrectMove(string from, string to)
+        {
+            var fromLetter = from[0];
+            var toLetter = to[0];
+            var fromNumber = from[1];
+            var toNumber = to[1];
+
+            if (fromLetter == toLetter && fromNumber == toNumber) return false;
+            if (fromLetter == toLetter || fromNumber == toNumber) return true;
+            return Math.Abs(fromLetter - toLetter) == Math.Abs(fromNumber - toNumber);
+        }
+
+        public static int MiddleOf(int a, int b, int c)
+        {
+            if (a == b) return a;
+            if (a == c) return a;
+            if (b == c) return b;
+
+            return a + b + c - Math.Max(Math.Max(a, b), Math.Max(a, c)) - Math.Min(Math.Min(a, b), Math.Min(a, c));
+        }
     }
+
+    public static class SolutionSortArrayByParity
+    {
+        public static int[] SortArrayByParity(int[] nums)
+        {
+            return nums.Where(x => x % 2 == 0).Concat(nums.Where(x => x % 2 != 0)).ToArray();
+        }
+    }
+
+    public static class SolutionIntReverse
+    {
+        public static int IntReverse(int x)
+        {
+            try
+            {
+                var minus = string.Empty;
+                if (x < 0)
+                {
+                    x = Math.Abs(x);
+                    minus = "-";
+                }
+                return int.Parse(minus + new string(x.ToString().Reverse().ToArray()));
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+    }
+
 }
 
 #endregion
