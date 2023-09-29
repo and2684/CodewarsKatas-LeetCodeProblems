@@ -1061,6 +1061,48 @@ namespace hw
             return res;
         }
     }
+    public static class SolutionIsMonotonic
+    {
+        public static bool IsMonotonic(int[] nums)
+        {
+            if (nums.Length <= 1) return true;
+            var goUp = true;
+            var goDown = true;
+            for (var i = 0; i <= nums.Length - 2; i++)
+            {
+                if (nums[i] > nums[i + 1]) goUp = goUp && true;
+                if (nums[i] < nums[i + 1]) goDown = goDown && true;
+            }
+            return goUp ^ goDown;
+        }
+    }
+
+    public static class SolutionAddTwoNumbers
+    {
+        public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+        {
+            var adder = 0;
+            var resList = new List<ListNode>();
+
+            while (l1 != null || l2 != null)
+            {
+                var l1val = l1 == null ? 0 : l1.val;
+                var l2val = l2 == null ? 0 : l2.val;
+                resList.Add(new ListNode((l1val + l2val + adder) % 10, null));
+                adder = (l1val + l2val + adder) / 10 == 0 ? 0 : 1;
+                if (l1 != null) l1 = l1.next;
+                if (l2 != null) l2 = l2.next;
+            }
+
+            if (adder == 1) resList.Add(new ListNode(adder, null));
+            for (var i = 0; i < resList.Count - 1; i++)
+            {
+                resList[i].next = resList[i + 1];
+            }
+
+            return resList[0];
+        }
+    }
 
 }
 
