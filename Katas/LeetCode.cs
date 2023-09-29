@@ -1104,6 +1104,79 @@ namespace hw
         }
     }
 
+    public static class SolutionIsMatch
+    {
+        static bool delOneSymbol = false;
+        public static bool IsMatch(string s, string p)
+        {
+            var bases = s;
+            var dot = '.';
+            var star = '*';
+            if (s == p) return true;
+            if (!p.Any(x => x == dot || x == star) && p != s) return false;
+            if (!p.Any(x => x != dot && x != star) && p.Any(x => x == star)) return true;
+
+            for (int i = 0; i < p.Length; i++)
+            {
+                if (p[i] == dot)
+                {
+                    if (i < p.Length - 1)
+                    {
+                        if (p[i + 1] == star)
+                            s = RemoveEntry(s, s[0], true);
+                    }
+                    s = s.Substring(1);
+                    if (s.Length == 0) return true;
+                    continue;
+                }
+
+                if ((i != p.Length - 1) && (p[i] == dot || p[i] == star)) continue;
+
+                if (i == p.Length - 1)
+                {
+                    if (p[i] == dot) return s.Length == 1;
+                    if (p[i] == star) return s.All(x => x == s[0]);
+                    if (bases.Last() != p[i]) return false;
+                    if (delOneSymbol) return false;
+                    s = RemoveEntry(s, p[i], false);
+                    //if (s.Length == 0) return false;
+                    continue;
+                }
+
+                if (p[i + 1] == star)
+                {
+                    s = RemoveEntry(s, p[i], true);
+                    if (s.Length == 0 && i == p.Length - 2) return true;
+                    i++;
+                    if (i < p.Length - 1 && i > 0)
+                    {
+                        if (p[i + 1] == p[i - 1]) 
+                            i++;
+                    }
+                    continue;
+                }
+
+                if (s.Length == 0) return false;
+                s = RemoveEntry(s, p[i], false);
+            }
+            return s.Length == 0;
+        }
+
+        public static string RemoveEntry(string s, char entry, bool anyCount)
+        {
+            if (!anyCount)
+            {
+                if (s.Length == 0) return s;
+                if (s[0] != entry) return s;
+                s = s.Substring(1);
+                if (s.Length == 0) delOneSymbol = true;
+                return s;
+            }
+
+            return new string(s.SkipWhile(x => x == entry).ToArray());
+        }
+    }
+
 }
 
 #endregion
