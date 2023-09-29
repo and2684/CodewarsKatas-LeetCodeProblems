@@ -1079,7 +1079,7 @@ namespace hw
 
     public static class SolutionAddTwoNumbers
     {
-        public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+        public static ListNode AddTwoNumbers(ListNode? l1, ListNode? l2)
         {
             var adder = 0;
             var resList = new List<ListNode>();

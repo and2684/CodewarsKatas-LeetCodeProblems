@@ -169,8 +169,6 @@ using hw;
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("4193 with words"));
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("00000-42a1234"));
 
-Console.WriteLine(SolutionAddTwoNumbers.AddTwoNumbers());
-
 Console.ReadKey();
 
 #endregion
