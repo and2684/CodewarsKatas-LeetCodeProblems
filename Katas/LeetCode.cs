@@ -1062,6 +1062,22 @@ namespace hw
         }
     }
 
+
+    public static class SolutionAddTwoNumbers
+    {
+        public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+        {
+            var l3first = new ListNode() { val = l1.val + l2.val % 10 };
+            var needPlusOne = l1.val + l2.val % 10 == 0 ? 0 : 1;
+            while (l1.next != null || l2.next != null)
+            {
+                
+            }
+
+
+            return new ListNode();
+        }
+    }
 }
 
 #endregion
