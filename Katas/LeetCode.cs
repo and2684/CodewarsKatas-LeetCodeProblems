@@ -1219,6 +1219,38 @@ public class Solution
 
         return count;
     }
+
+    public string Convert(string s, int numRows)
+    {
+        var i = 0;
+        var goUp = true;
+        var q = new Dictionary<int, List<char>>(numRows);
+
+        for (int j = 0; j < numRows; j++)
+        {
+            q.Add(j, new List<char>());
+        }
+
+        foreach (var c in s)
+        {
+            q[i].Add(c);
+
+            i = goUp ? i + 1 : i - 1;
+            if (i == numRows - 1) goUp = false;
+            if (i == 0) goUp = true;
+        }
+
+        var sb = new StringBuilder(s.Length);
+        for (int j = 0; j < q.Count; j++)
+        {
+            foreach (var c in q[j])
+            {
+                sb.Append(c);
+            }
+        }
+
+        return sb.ToString();
+    }
 }
 
 #endregion

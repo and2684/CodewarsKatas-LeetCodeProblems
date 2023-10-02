@@ -176,8 +176,9 @@ using hw;
 //Console.WriteLine(SolutionIsMatch.IsMatch("mississippi", "mis*is*ip*."));
 //Console.WriteLine(SolutionIsMatch.IsMatch("abcd", "d*"));
 
-var obj = new Solution();
-Console.WriteLine(obj.WinnerOfGame("AAAABBBB"));
+var solution = new Solution();
+//Console.WriteLine(solution.WinnerOfGame("AAAABBBB"));
+Console.WriteLine(solution.Convert("PAYPALISHIRING", 3));
 
 Console.ReadKey();
 
