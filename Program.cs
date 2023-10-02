@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using System.Runtime.InteropServices;
+using System.Threading.Channels;
 using hw;
 #region Snail Kata
 // using hw;
@@ -174,6 +175,9 @@ using hw;
 //Console.WriteLine(SolutionIsMatch.IsMatch("aaa", "ab*a*c*a"));
 //Console.WriteLine(SolutionIsMatch.IsMatch("mississippi", "mis*is*ip*."));
 //Console.WriteLine(SolutionIsMatch.IsMatch("abcd", "d*"));
+
+var obj = new Solution();
+Console.WriteLine(obj.WinnerOfGame("AAAABBBB"));
 
 Console.ReadKey();
 

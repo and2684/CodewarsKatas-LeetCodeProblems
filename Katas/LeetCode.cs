@@ -2,6 +2,7 @@ global using hw;
 using System.Collections;
 using System.Collections.Immutable;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace hw
 {
@@ -1194,7 +1195,30 @@ namespace hw
             return dp[n - 1];
         }
     }
+}
 
+public class Solution
+{
+    public bool WinnerOfGame(string colors)
+    {
+        var aliceCount = CountSubstr(colors, "AAA");
+        var bobCount = CountSubstr(colors, "BBB");
+        return (aliceCount > bobCount);
+    }
+
+    public int CountSubstr(string colors, string substr)
+    {
+        if (!colors.Contains(substr)) return 0;
+        var count = 0;
+
+        for (int i = 0; i < colors.Length - (substr.Length - 1); i++)
+        {
+            if (colors.Substring(i, substr.Length) == substr)
+                count++;
+        }
+
+        return count;
+    }
 }
 
 #endregion
