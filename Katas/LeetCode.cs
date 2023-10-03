@@ -1233,7 +1233,7 @@ public class Solution
 
         foreach (var c in s)
         {
-            q[i].Add(c);
+            if (q != null) q[i].Add(c);
 
             i = goUp ? i + 1 : i - 1;
             if (i == numRows - 1) goUp = false;
