@@ -1263,8 +1263,8 @@ public class Solution
     public int ThreeSumClosest(int[] nums, int target)
     {
         Array.Sort(nums);
-        var res = int.MaxValue;
-        var min = int.MinValue;
+        var res = 0;
+        var min = int.MaxValue;
 
         for (int i = 0; i < nums.Length; i++)
         {
