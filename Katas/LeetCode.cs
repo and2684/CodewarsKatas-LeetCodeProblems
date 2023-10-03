@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Immutable;
 using System.Text;
@@ -1254,6 +1255,38 @@ public class Solution
 
             strs[i] = alreadyDoneStr;
             res.Add(newList);
+        }
+
+        return res;
+    }
+
+    public int ThreeSumClosest(int[] nums, int target)
+    {
+        Array.Sort(nums);
+        var res = int.MaxValue;
+        var min = int.MinValue;
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            var start = i + 1;
+            var end = nums.Length - 1;
+            while (start < end)
+            {
+                var sum = nums[i] + nums[start] + nums[end];
+                if (target == sum) return target;
+
+                var cur = Math.Abs(target - sum);
+                if (cur < min)
+                {
+                    min = cur;
+                    res = sum;
+                }
+
+                if (sum < target) start++;
+                else end--;
+            }
         }
 
         return res;
