@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Threading.Channels;
-using hw;
+﻿using hw;
 #region Snail Kata
 // using hw;
 
@@ -168,17 +166,7 @@ using hw;
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("42"));
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("        -42"));
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("4193 with words"));
-//Console.WriteLine(SolutionMyAtoi.MyAtoi("00000-42a1234"));
-
-//Console.WriteLine(SolutionIsMatch.IsMatch("ab", "*.c"));
-//Console.WriteLine(SolutionIsMatch.IsMatch("aab", "c*a*b"));
-//Console.WriteLine(SolutionIsMatch.IsMatch("aaa", "ab*a*c*a"));
-//Console.WriteLine(SolutionIsMatch.IsMatch("mississippi", "mis*is*ip*."));
-//Console.WriteLine(SolutionIsMatch.IsMatch("abcd", "d*"));
-
-var solution = new Solution();
-//Console.WriteLine(solution.WinnerOfGame("AAAABBBB"));
-Console.WriteLine(solution.Convert("PAYPALISHIRING", 3));
+Console.WriteLine(SolutionMyAtoi.MyAtoi("00000-42a1234"));
 
 Console.ReadKey();
 
