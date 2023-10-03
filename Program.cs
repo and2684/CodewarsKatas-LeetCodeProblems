@@ -166,7 +166,10 @@
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("42"));
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("        -42"));
 //Console.WriteLine(SolutionMyAtoi.MyAtoi("4193 with words"));
-Console.WriteLine(SolutionMyAtoi.MyAtoi("00000-42a1234"));
+//Console.WriteLine(SolutionMyAtoi.MyAtoi("00000-42a1234"));
+
+var solution = new Solution();
+Console.WriteLine(solution.GroupAnagrams(new string[] { "eat", "tea", "tan", "ate", "nat", "bat" }));
 
 Console.ReadKey();
 

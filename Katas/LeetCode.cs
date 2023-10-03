@@ -1,4 +1,3 @@
-global using hw;
 using System.Collections;
 using System.Collections.Immutable;
 using System.Text;
@@ -1109,7 +1108,7 @@ namespace hw
                     i++;
                     if (i < p.Length - 1 && i > 0)
                     {
-                        if (p[i + 1] == p[i - 1]) 
+                        if (p[i + 1] == p[i - 1])
                             i++;
                     }
                     continue;
@@ -1221,6 +1220,43 @@ public class Solution
             }
         }
         return cnt;
+    }
+
+
+    public IList<IList<string>> GroupAnagrams(string[] strs)
+    {
+        var res = new List<IList<string>>();
+        if (strs.Length == 1)
+        {
+            res.Add(new List<string>() { strs[0] });
+            return res;
+        }
+        var alreadyDoneStr = "_";
+
+        var strsSorted = strs.Select(x => new string(x.OrderBy(x => x).ToArray())).ToList();
+
+        for (int i = 0; i < strs.Length; i++)
+        {
+            if (strs[i] == alreadyDoneStr) continue;
+            var newList = new List<string>() { strs[i] };
+            if (i < strs.Length - 1)
+            {
+                for (int j = i + 1; j < strs.Length; j++)
+                {
+                    if (strs[j] == alreadyDoneStr) continue;
+                    if (strsSorted[i] == strsSorted[j])
+                    {
+                        newList.Add(strs[j]);
+                        strs[j] = alreadyDoneStr;
+                    }
+                }
+            }
+
+            strs[i] = alreadyDoneStr;
+            res.Add(newList);
+        }
+
+        return res;
     }
 }
 
