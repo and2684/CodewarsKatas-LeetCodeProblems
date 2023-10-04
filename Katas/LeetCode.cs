@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Immutable;
 using System.Text;
@@ -1317,6 +1316,43 @@ public class Solution
         {
             _map.Remove(key);
         }
+    }
+
+    public IList<IList<int>> FourSum(int[] nums, int target)
+    {
+        Array.Sort(nums);
+        var res = new Dictionary<string, IList<int>>();
+
+        var ext1 = 0; // external left index
+        var ext2 = nums.Length - 1; // external right index
+        var int1 = ext1 + 1; // internal left index
+        var int2 = ext2 - 1; // internal right index
+
+        while (ext1 < ext2 - 2)
+        {
+            while (int1 < int2)
+            {
+                var sum = nums[ext1] + nums[ext2] + nums[int1] + nums[int2];
+                if (sum == target)
+                {
+                    var arr = new int[] { nums[ext1], nums[int1], nums[int2], nums[ext2] };
+                    var s = string.Join(' ', arr);
+                    if (!res.ContainsKey(s))
+                        res.Add(s, arr);
+                }
+
+                if (sum < target) int1++;
+                else int2--;
+            }
+
+            ext1++;
+            ext2--;
+
+            int1 = ext1 + 1;
+            int2 = ext2 - 1;
+        }
+
+        return res.Values.ToList();
     }
 }
 
