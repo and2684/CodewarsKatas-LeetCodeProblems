@@ -1291,6 +1291,33 @@ public class Solution
 
         return res;
     }
+
+    public class MyHashMap
+    {
+        Dictionary<int, int> _map;
+        public MyHashMap()
+        {
+            _map = new Dictionary<int, int>();
+        }
+
+        public void Put(int key, int value)
+        {
+            if (_map.ContainsKey(key))
+                _map[key] = value;
+            else
+                _map.Add(key, value);
+        }
+
+        public int Get(int key)
+        {
+            return _map.ContainsKey(key) ? _map[key] : -1;
+        }
+
+        public void Remove(int key)
+        {
+            _map.Remove(key);
+        }
+    }
 }
 
 #endregion
