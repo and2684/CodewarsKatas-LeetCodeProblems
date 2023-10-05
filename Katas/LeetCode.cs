@@ -1395,6 +1395,29 @@ public class Solution
 
         return listNodes.First();
     }
+
+    public int Divide(int dividend, int divisor)
+    {
+        if (dividend == int.MinValue && divisor == -1) return int.MaxValue;
+        if (divisor == 1) return dividend;
+        if (divisor == 0) return 0;
+
+        var longdivisor = Math.Abs((long)divisor);
+        var longdividend = Math.Abs((long)dividend);
+
+        var res = 0;
+        if (longdivisor == longdividend) res = 1;
+        else
+        {
+            while (longdivisor <= longdividend)
+            {
+                res++;
+                longdividend -= longdivisor;
+            }
+        }
+
+        return (divisor < 0 ^ dividend < 0) ? 0 - res : res;
+    }
 }
 
 #endregion
