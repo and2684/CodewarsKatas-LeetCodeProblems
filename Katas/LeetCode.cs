@@ -1323,33 +1323,31 @@ public class Solution
         Array.Sort(nums);
         var res = new Dictionary<string, IList<int>>();
 
-        var ext1 = 0; // external left index
+        var ext1 = 0;               // external left index
         var ext2 = nums.Length - 1; // external right index
-        var int1 = ext1 + 1; // internal left index
-        var int2 = ext2 - 1; // internal right index
+        var int1 = 1;               // internal left index
+        var int2 = nums.Length - 2; // internal right index
 
-        while (ext1 < ext2 - 2)
+        for (ext1 = 0; ext1 < nums.Length - 1; ext1++)
         {
-            while (int1 < int2)
+            for (ext2 = nums.Length - 1; ext2 > 0; ext2--)
             {
-                var sum = nums[ext1] + nums[ext2] + nums[int1] + nums[int2];
-                if (sum == target)
+                int1 = ext1 + 1;
+                int2 = ext2 - 1;
+                while (int1 < int2)
                 {
-                    var arr = new int[] { nums[ext1], nums[int1], nums[int2], nums[ext2] };
-                    var s = string.Join(' ', arr);
-                    if (!res.ContainsKey(s))
-                        res.Add(s, arr);
+                    var sum = (long)nums[ext1] + (long)nums[ext2] + (long)nums[int1] + (long)nums[int2];
+                    if (sum == target)
+                    {
+                        var arr = new[] { nums[ext1], nums[int1], nums[int2], nums[ext2] };
+                        var s = string.Join(' ', arr);
+                        res.TryAdd(s, arr);
+                    }
+
+                    if (sum <= target) int1++;
+                    else int2--;
                 }
-
-                if (sum < target) int1++;
-                else int2--;
             }
-
-            ext1++;
-            ext2--;
-
-            int1 = ext1 + 1;
-            int2 = ext2 - 1;
         }
 
         return res.Values.ToList();
