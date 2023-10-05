@@ -60,7 +60,7 @@ namespace hw
                 var s = "0";
                 for (int j = 0; j < 10; j++)
                 {
-                    s = s + field[i, j].ToString();
+                    s = s + field[i, j];
                 }
                 s = s + "0";
                 battleshipCount = battleshipCount + Regex.Matches(s, "011110").Count;
@@ -73,7 +73,7 @@ namespace hw
                 var s = "0";
                 for (int i = 0; i < 10; i++)
                 {
-                    s = s + field[i, j].ToString();
+                    s = s + field[i, j];
                 }
                 s = s + "0";
                 battleshipCount = battleshipCount + Regex.Matches(s, "011110").Count;

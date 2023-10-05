@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace hw
@@ -14,7 +14,7 @@ namespace hw
                 for (int j = 1; j < nums.Length; j++)
                     if ((nums[i] + nums[j] == target) & (i != j))
                     {
-                        return new int[] { i, j };
+                        return new[] { i, j };
                     }
             }
             return null;
@@ -56,7 +56,7 @@ namespace hw
 
             while (s.Contains("()") | s.Contains("[]") | s.Contains("{}"))
             {
-                s = s.Replace("()", "").Replace("[]", "").Replace("{}", "").ToString();
+                s = s.Replace("()", "").Replace("[]", "").Replace("{}", "");
             }
 
             return (s.Length == 0);
@@ -65,6 +65,7 @@ namespace hw
 
     public static class SolutionPow
     {
+        [SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
         public static double MyPow(double x, int n)
         {
             if (n == 0) return 1;
@@ -73,7 +74,7 @@ namespace hw
             if (x == -1)
             {
                 if (n % 2 == 0) return 1;
-                else return -1;
+                return -1;
             }
 
             var basex = x;
@@ -87,16 +88,14 @@ namespace hw
                 }
                 return x;
             }
-            else
+
+            while (n != -1)
             {
-                while (n != -1)
-                {
-                    x = x * basex;
-                    n++;
-                }
-                x = Math.Round(1 / x, 4);
-                return x;
+                x = x * basex;
+                n++;
             }
+            x = Math.Round(1 / x, 4);
+            return x;
         }
     }
 
@@ -105,7 +104,7 @@ namespace hw
         public static bool IsPalindrome(int x)
         {
             var s = x.ToString();
-            var reverse = new System.Text.StringBuilder(s.Length);
+            var reverse = new StringBuilder(s.Length);
             for (int i = s.Length - 1; i >= 0; i--)
             {
                 reverse.Append(s[i]);
@@ -249,7 +248,7 @@ namespace hw
         public static bool IsPalindrome(string s)
         {
             s = new String(s.Where(char.IsLetterOrDigit).ToArray()).ToUpper();
-            return s == new String(s?.ToCharArray().Reverse().ToArray()); ;
+            return s == new String(s.ToCharArray().Reverse().ToArray());
         }
     }
 
@@ -385,7 +384,7 @@ namespace hw
 
             for (int i = 1; i <= s.Length / 2; i++)
             {
-                if (!s.Replace(s.Substring(0, i), "").Any()) { return true; };
+                if (!s.Replace(s.Substring(0, i), "").Any()) { return true; }
             }
 
             return false;
@@ -760,7 +759,7 @@ namespace hw
 
                 if (!z)
                 {
-                    suffix = dictionary[columnNumber].ToString() + suffix;
+                    suffix = dictionary[columnNumber] + suffix;
                 }
             }
 
@@ -833,7 +832,7 @@ namespace hw
     public static class SolutionInorderTraversal
     {
         public static List<int> res = new List<int>();
-        public static IList<int> InorderTraversal(TreeNode root)
+        public static IList<int> InorderTraversal(TreeNode? root)
         {
             if (root is null) return res;
             if (root.left is not null) InorderTraversal(root.left);
@@ -1064,7 +1063,7 @@ namespace hw
 
     public static class SolutionIsMatch
     {
-        static bool delOneSymbol = false;
+        static bool delOneSymbol;
         public static bool IsMatch(string s, string p)
         {
             var bases = s;
@@ -1233,7 +1232,7 @@ public class Solution
         }
         var alreadyDoneStr = "_";
 
-        var strsSorted = strs.Select(x => new string(x.OrderBy(x => x).ToArray())).ToList();
+        var strsSorted = strs.Select(x => new string(x.OrderBy(c => c).ToArray())).ToList();
 
         for (int i = 0; i < strs.Length; i++)
         {
@@ -1293,7 +1292,7 @@ public class Solution
 
     public class MyHashMap
     {
-        Dictionary<int, int> _map;
+        readonly Dictionary<int, int> _map;
         public MyHashMap()
         {
             _map = new Dictionary<int, int>();
@@ -1301,15 +1300,12 @@ public class Solution
 
         public void Put(int key, int value)
         {
-            if (_map.ContainsKey(key))
-                _map[key] = value;
-            else
-                _map.Add(key, value);
+            _map[key] = value;
         }
 
         public int Get(int key)
         {
-            return _map.ContainsKey(key) ? _map[key] : -1;
+            return _map.TryGetValue(key, out var value) ? value : -1;
         }
 
         public void Remove(int key)
@@ -1318,6 +1314,8 @@ public class Solution
         }
     }
 
+    [SuppressMessage("ReSharper", "RedundantAssignment")]
+    [SuppressMessage("ReSharper", "RedundantCast")]
     public IList<IList<int>> FourSum(int[] nums, int target)
     {
         Array.Sort(nums);
