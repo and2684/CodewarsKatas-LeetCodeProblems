@@ -1,3 +1,4 @@
+using hw;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
@@ -1371,6 +1372,28 @@ public class Solution
         //    sb.Append(' ');
         //}
         //return sb.ToString().Trim();
+    }
+
+    public ListNode RemoveNthFromEnd(ListNode head, int n)
+    {
+        var listNodes = new List<ListNode>();
+        var curNode = head;
+        listNodes.Add(curNode);
+        while (curNode.next != null)
+        {
+            listNodes.Add(curNode.next);
+            curNode = curNode.next;
+        }
+
+        listNodes.RemoveAt(listNodes.Count - n);
+
+        for (int i = 0; i < listNodes.Count; i++)
+        {
+            if (i == listNodes.Count - 1) listNodes[i].next = null;
+            else listNodes[i].next = listNodes[i + 1];
+        }
+
+        return listNodes.First();
     }
 }
 
