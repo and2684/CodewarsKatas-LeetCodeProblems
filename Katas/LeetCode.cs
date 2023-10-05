@@ -1354,6 +1354,28 @@ public class Solution
 
         return res.Values.ToList();
     }
+
+    public string ReverseWords(string s)
+    {
+        var ss = s.Split(' ');
+        var bb = ss.Select(x => new string(x.Reverse().ToArray())).ToArray();
+        return string.Join(' ', bb);
+
+        // »ли так:
+        //var sb = new StringBuilder(s.Length);
+        //var ss = s.Split(' ');
+        //foreach (var str in ss)
+        //{
+        //    var i = 0;
+        //    while (i >= 0)
+        //    {
+        //        sb.Append(str[i]);
+        //        i--;
+        //    }
+        //    sb.Append(' ');
+        //}
+        //return sb.ToString().Trim();
+    }
 }
 
 #endregion
