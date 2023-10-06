@@ -1418,6 +1418,39 @@ public class Solution
 
         return (divisor < 0 ^ dividend < 0) ? 0 - res : res;
     }
+
+    public int IntegerBreak(int n)
+    {
+        if (n == 2) return 1;
+        if (n == 3) return 2;
+        var divider = 2;
+        var res = 0;
+
+        while (n / divider > 0)
+        {
+            var del = n / divider;
+            var mod = n % divider;
+
+            var arr = new int[del];
+            Array.Fill(arr, divider);
+            var cur = 1;
+
+            if (del * mod >= del + mod)
+                cur = mod;
+            else
+                arr[0] = arr[0] + mod;
+
+
+            foreach (var item in arr)
+                if (item > 0) cur *= item;
+
+            res = Math.Max(res, cur);
+
+            divider++;
+        }
+
+        return res;
+    }
 }
 
 #endregion
