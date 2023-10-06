@@ -1,4 +1,5 @@
-﻿#region Snail Kata
+﻿using Tests;
+#region Snail Kata
 // using hw;
 
 // int[][] array = new int [][]
