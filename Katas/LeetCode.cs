@@ -1451,6 +1451,26 @@ public class Solution
 
         return res;
     }
+
+    public int[] SearchRange(int[] nums, int target)
+    {
+        //// Ћинейный поиск O(n)
+        //if (nums.Length == 0) return new int[2] { -1, -1 };
+        //var i = 0;
+        //var j = nums.Length - 1;
+        //while ((nums[i] != target || nums[j] != target) && i < j)
+        //{
+        //    if (nums[i] != target) i++;
+        //    if (nums[j] != target) j--;
+        //}
+        //if (nums[i] != target || nums[j] != target) return new int[2] { -1, -1 };
+        //return new int[2] { i, j };
+
+        // Ѕинарный поиск O(logn)
+        // —ƒ≈Ћќ“№ дл€ себ€ :)
+
+        return new int[2] { -1, 1 };
+    }
 }
 
 #endregion
