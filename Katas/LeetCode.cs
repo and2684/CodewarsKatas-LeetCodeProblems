@@ -1451,6 +1451,129 @@ public class Solution
 
         return res;
     }
+
+    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
+    {
+        if (list1 == null && list2 == null) return null;
+        if (list1 == null && list2 != null) return list2;
+        if (list1 != null && list2 == null) return list1;
+
+        ListNode starter;
+        ListNode dummy;
+        if (list1!.val < list2!.val)
+        {
+            starter = list1;
+            list1 = list1.next;
+        }
+        else
+        {
+            starter = list2;
+            list2 = list2.next;
+        }
+
+        dummy = starter;
+        while (list1 != null || list2 != null)
+        {
+            if (list1 == null && list2 != null)
+            {
+                dummy.next = list2;
+                break;
+            }
+            if (list1 != null && list2 == null)
+            {
+                dummy.next = list1;
+                break;
+            }
+
+            if (list1!.val < list2!.val)
+            {
+                dummy.next = list1;
+                list1 = list1.next;
+            }
+            else
+            {
+                dummy.next = list2;
+                list2 = list2.next;
+            }
+            dummy = dummy.next;
+        }
+
+        return starter;
+    }
+
+    public ListNode? MergeKLists(ListNode[] lists)
+    {
+        if (lists.Length == 0) return null;
+
+        var res = new List<ListNode>();
+        foreach (var listnode in lists)
+        {
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+            if (listnode != null)
+            {
+                var cur = listnode;
+                res.Add(cur);
+                while (cur.next != null)
+                {
+                    cur = cur.next;
+                    res.Add(cur);
+                }
+            }
+        }
+
+        if (res.Count > 1)
+        {
+            res = res.OrderBy(x => x.val).ToList();
+            for (int i = 0; i < res.Count - 1; i++)
+            {
+                res[i].next = res[i + 1];
+            }
+        }
+
+        if (res.Count == 0) return lists[0];
+        return res.FirstOrDefault();
+    }
+
+    public int Search(int[] nums, int target)
+    {
+        var pivot = 0;
+        int res;
+
+        for (int i = nums.Length - 1; i > 0; i--)
+        {
+            if (nums[i] > nums[0])
+            {
+                pivot = i;
+                break;
+            }
+        }
+
+        res = BinarySearch(nums, target, 0, pivot);
+        if (res == -1)
+            res = BinarySearch(nums, target, pivot + 1, nums.Length - 1);
+        return res;
+
+        static int BinarySearch(int[] nums, int target, int startIndex, int endIndex)
+        {
+            if (startIndex > endIndex)
+            {
+                return -1;
+            }
+
+            int mid = (startIndex + endIndex) / 2;
+            if (target == nums[mid])
+            {
+                return mid;
+            }
+
+            if (target < nums[mid])
+            {
+                return BinarySearch(nums, target, startIndex, mid - 1);
+            }
+
+            return BinarySearch(nums, target, mid + 1, endIndex);
+        }
+    }
 }
 
 #endregion
