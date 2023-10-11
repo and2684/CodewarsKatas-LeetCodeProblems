@@ -174,7 +174,7 @@ var solution = new Solution();
 //Console.WriteLine(solution.Divide(-2147483648, 2));
 //Console.WriteLine(solution.IntegerBreak(2));
 //Console.WriteLine(solution.IntegerBreak(10));
-solution.SearchRange(new int[] { 5, 7, 7, 8, 8, 10 }, 8);
+solution.Search(new int[] { 5, 7, 7, 8, 8, 10 }, 8);
 
 Console.ReadKey();
 
