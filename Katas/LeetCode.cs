@@ -1574,6 +1574,73 @@ public class Solution
             return BinarySearch(nums, target, mid + 1, endIndex);
         }
     }
+
+    public string? Multiply(string num1, string num2)
+    {
+        var result = "0";
+        if (num1 == "0" || num2 == "0") return result;
+        var listOfResults = new List<string>();
+        var zeroesAdder = 0;
+
+        for (int i = num2.Length - 1; i >= 0; i--)
+        {
+            listOfResults.Add(MultiplyOneNumber(num1, num2[i]) + new string('0', zeroesAdder++));
+        }
+        if (listOfResults.Count == 0) return string.Empty;
+
+        foreach (var item in listOfResults)
+        {
+            result = AddStrings(result, item);
+        }
+        return result;
+
+        string MultiplyOneNumber(string num1, char num2)
+        {
+            int carry = 0; // перенос
+            StringBuilder result = new StringBuilder();
+
+            int digit2 = num2 - '0';
+
+            for (int i = num1.Length - 1; i >= 0; i--)
+            {
+                int digit1 = num1[i] - '0';
+                int product = digit1 * digit2 + carry;
+                carry = product / 10;
+                result.Insert(0, (char)('0' + (product % 10)));
+            }
+
+            if (carry > 0)
+            {
+                result.Insert(0, (char)('0' + carry));
+            }
+
+            return result.ToString();
+        }
+
+        string AddStrings(string str1, string str2)
+        {
+            var str1Reverse = str1.Reverse().ToArray();
+            var str2Reverse = str2.Reverse().ToArray();
+            int carry = 0;
+            StringBuilder result = new StringBuilder();
+
+            int i = 0;
+            int maxLength = Math.Max(str1Reverse.Length, str2Reverse.Length);
+
+            while (i < maxLength || carry > 0)
+            {
+                int digit1 = (i < str1Reverse.Length) ? str1Reverse[i] - '0' : 0;
+                int digit2 = (i < str2Reverse.Length) ? str2Reverse[i] - '0' : 0;
+                int sum = digit1 + digit2 + carry;
+                carry = sum / 10;
+                result.Insert(0, (char)(sum % 10 + '0'));
+                i++;
+            }
+
+            return result.ToString();
+        }
+    }
 }
+
 
 #endregion
