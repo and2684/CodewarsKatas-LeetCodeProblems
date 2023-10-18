@@ -1,5 +1,6 @@
 using hw;
 using System.Collections;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
@@ -1638,6 +1639,31 @@ public class Solution
             }
 
             return result.ToString();
+        }
+
+        void SortColors(int[] nums)
+        {
+            var zerocount = 0;
+            var onecount = 0;
+            var twocount = 0;
+            foreach(int num in nums)
+            {
+                if (num == 0) zerocount++;
+                if (num == 1) onecount++;
+                if (num == 2) twocount++;
+            }
+            for (int i = 0; i < zerocount; i++)
+            {
+                nums[i] = 0;
+            }
+            for (int i = zerocount; i < zerocount + onecount; i++) 
+            { 
+                nums[i] = 1; 
+            }
+            for (int i = zerocount + onecount; i < nums.Length - 1; i++)
+            {
+                nums[i] = 2;
+            }
         }
     }
 }
