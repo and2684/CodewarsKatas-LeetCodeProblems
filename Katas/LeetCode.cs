@@ -1642,6 +1642,58 @@ public class Solution
             return result.ToString();
         }
     }
+    public void SortColors(int[] nums)
+    {
+        var zerocount = 0;
+        var onecount = 0;
+        foreach (int num in nums)
+        {
+            if (num == 0) zerocount++;
+            if (num == 1) onecount++;
+        }
+        for (int i = 0; i < zerocount; i++)
+        {
+            nums[i] = 0;
+        }
+        for (int i = zerocount; i < zerocount + onecount; i++)
+        {
+            nums[i] = 1;
+        }
+        for (int i = zerocount + onecount; i < nums.Length; i++)
+        {
+            nums[i] = 2;
+        }
+    }
+
+    public string MinWindow(string s, string t)
+    {
+        var leftPointer = 0;
+        var rightPointer = 0;
+        var moveLeft = true;
+        var res = s;
+
+        while(Contains(s, t))
+        {
+            res = s;
+            s = s.Substring(leftStep, s.Length - rightStep);
+            if (moveLeft)
+                leftStep++;
+            else
+                rightStep++;
+            moveLeft = !moveLeft;
+        }
+
+        return res;
+
+        bool Contains(string s, string t)
+        {
+            foreach (var c in t)
+            {
+                if(!s.Contains(c)) return false;
+            }
+            return true;
+        }
+    }
 }
 
 public class LeetCodeSolution
