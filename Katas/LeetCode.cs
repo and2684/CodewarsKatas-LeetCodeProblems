@@ -1,6 +1,8 @@
 using hw;
 using System.Collections;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace hw
@@ -1638,6 +1640,70 @@ public class Solution
             }
 
             return result.ToString();
+        }
+    }
+}
+
+public class LeetCodeSolution
+{
+    public string LargestGoodInteger(string num)
+    {
+        var pointer1 = 0;
+        var pointer2 = 1;
+        var pointer3 = 2;
+
+        var resHash = new HashSet<string>();
+
+        while(pointer3 < num.Length)
+        {
+            if (num[pointer1] == num[pointer2] && num[pointer2] == num[pointer3])
+            {
+                resHash.Add(num.Substring(pointer1, 3));
+            }
+            pointer1++;
+            pointer2++;
+            pointer3++;
+        }
+
+        return resHash.Count > 0 ? resHash.Max()! : string.Empty;
+    }
+
+    public IList<bool> CheckArithmeticSubarrays(int[] nums, int[] l, int[] r)
+    {
+        var res = new List<bool>();
+
+        for(int i = 0; i < l.Length; i++)
+        {
+            var offset = r[i] - l[i] + 1;
+            var subarray = new int[offset];
+            Array.Copy(nums, l[i], subarray, 0, offset);
+
+            res.Add(IsArrayArithmetic(subarray));
+        }
+
+        return res;
+
+
+        static bool IsArrayArithmetic(int[] array)
+        {
+            Array.Sort(array);
+            if (array.Length < 2) return true;
+
+            var pointer1 = 0;
+            var pointer2 = 1;
+            var difference = array[pointer2] - array[pointer1];
+            pointer1++;
+            pointer2++;
+
+            while (pointer2 < array.Length)
+            {
+                if (array[pointer2] - array[pointer1] != difference)
+                    return false;
+
+                pointer1++;
+                pointer2++;
+            }
+            return true;
         }
     }
 }
