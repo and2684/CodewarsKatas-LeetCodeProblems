@@ -1665,35 +1665,35 @@ public class Solution
         }
     }
 
-    public string MinWindow(string s, string t)
-    {
-        var leftPointer = 0;
-        var rightPointer = 0;
-        var moveLeft = true;
-        var res = s;
+    //public string MinWindow(string s, string t)
+    //{
+    //    var leftPointer = 0;
+    //    var rightPointer = 0;
+    //    var moveLeft = true;
+    //    var res = s;
 
-        while(Contains(s, t))
-        {
-            res = s;
-            s = s.Substring(leftStep, s.Length - rightStep);
-            if (moveLeft)
-                leftStep++;
-            else
-                rightStep++;
-            moveLeft = !moveLeft;
-        }
+    //    while(Contains(s, t))
+    //    {
+    //        res = s;
+    //        s = s.Substring(leftStep, s.Length - rightStep);
+    //        if (moveLeft)
+    //            leftStep++;
+    //        else
+    //            rightStep++;
+    //        moveLeft = !moveLeft;
+    //    }
 
-        return res;
+    //    return res;
 
-        bool Contains(string s, string t)
-        {
-            foreach (var c in t)
-            {
-                if(!s.Contains(c)) return false;
-            }
-            return true;
-        }
-    }
+    //    bool Contains(string s, string t)
+    //    {
+    //        foreach (var c in t)
+    //        {
+    //            if(!s.Contains(c)) return false;
+    //        }
+    //        return true;
+    //    }
+    //}
 }
 
 public class LeetCodeSolution
@@ -1755,6 +1755,58 @@ public class LeetCodeSolution
                 pointer1++;
                 pointer2++;
             }
+            return true;
+        }
+    }
+
+    public IList<IList<string>> Partition(string s)
+    {
+
+        var listOfPartitions = new List<List<string>>();
+        var resList = new List<List<string>>();
+
+        GeneratePartitions(s, new List<string>(), ref listOfPartitions);
+
+
+        // Все варианты подстрок
+
+        foreach (var stringList in listOfPartitions)
+        {
+            if (AllStringsArePalindrome(stringList))
+            {
+                resList.Add(stringList);
+            }
+        }
+
+        return resList.ToList<IList<string>>();
+
+        static void GeneratePartitions(string input, List<string> currentPartition, ref List<List<string>> partitions)
+        {
+            if (input.Length == 0)
+            {
+                partitions.Add(new List<string>(currentPartition));
+                return;
+            }
+
+            for (int i = 1; i <= input.Length; i++)
+            {
+                string prefix = input.Substring(0, i);
+                string remaining = input.Substring(i);
+
+                currentPartition.Add(prefix);
+                GeneratePartitions(remaining, currentPartition, ref partitions);
+                currentPartition.RemoveAt(currentPartition.Count - 1);
+            }
+        }
+
+        static bool AllStringsArePalindrome(List<string> listToCheck)
+        {
+            foreach(var str in listToCheck)
+            {
+                if (str != new string(str.Reverse().ToArray()))
+                    return false;
+            }
+
             return true;
         }
     }
