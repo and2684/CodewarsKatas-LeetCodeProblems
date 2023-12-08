@@ -1810,6 +1810,42 @@ public class LeetCodeSolution
             return true;
         }
     }
+
+    public string Tree2str(TreeNode root)
+    {
+        var res = new StringBuilder();
+
+        res.Append(root.val);
+        AppendStr(ref res, root);          
+
+        return res.ToString();
+
+        static void AppendStr(ref StringBuilder sb, TreeNode node)
+        {
+            if (node.left != null)
+                sb.Append(node.left.val);
+            if (node.right != null)
+                sb.Append(node.right.val);
+
+            if (node.left != null)
+                AppendStr(ref sb, node.left);
+            if (node.right != null)
+                AppendStr(ref sb, node.right);
+        }
+
+
+        //static string getChildStr(TreeNode node)
+        //{
+        //    var res = string.Empty;
+        //    if (node.left != null)
+        //        res = res + node.left.val.ToString();
+
+        //    if (node.right != null)
+        //        res = res + node.right.val.ToString();
+
+        //    return res;
+        //}
+    }
 }
 
 
